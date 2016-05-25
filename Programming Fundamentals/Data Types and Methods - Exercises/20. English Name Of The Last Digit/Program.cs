@@ -6,8 +6,10 @@ namespace _2
     {
         static void Main(string[] args)
         {
-            long input = long.Parse(Console.ReadLine());
-            long last = (int)(input % 10);
+            string input = Console.ReadLine();
+            input = input.Substring(input.Length - 1, 1);
+            int inputr = int.Parse(input);
+            int last = (inputr % 10);
             switch (last)
             {
                 case 1: Console.WriteLine("one"); break;
@@ -20,6 +22,7 @@ namespace _2
                 case 8: Console.WriteLine("eight"); break;
                 case 9: Console.WriteLine("nine"); break;
                 case 0: Console.WriteLine("zero"); break;
+                default: break;
             }
         }
     }
