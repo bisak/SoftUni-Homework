@@ -15,18 +15,18 @@ namespace _02.Rotate_and_Sum
             int[] sum = new int[arr.Length];
             for (int i = 0; i < k; i++)
             {
-                for (int j = 0; j < arr.Length-1; j++)
+                for (int j = arr.Length - 1; j > 0; j--)
                 {
                     int temp = arr[j];
-                    arr[j+1] = arr[j];  //should take a second look at this algorithm!
-                    arr[j + 1] = temp;
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
                 }
                 for (int j = 0; j < arr.Length; j++)
                 {
                     sum[j] = sum[j] + arr[j];
                 }
             }
-                Console.WriteLine(string.Join(" ", sum));
+            Console.WriteLine(string.Join(" ", sum));
         }
     }
 }

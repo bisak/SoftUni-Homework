@@ -12,24 +12,25 @@ namespace _01.Largest_Common_End
         {
             string[] one = Console.ReadLine().Split(' ');
             string[] two = Console.ReadLine().Split(' ');
-            int count = 0;
-            int pos = 0;
-            int oneL = one.Length;
-            int twoL = two.Length;
-            for (int i = 0 ; i < Math.Min(oneL, twoL); i++)
+            int countLeft = 0;
+            int countRight = 0;
+            for (int i = 0; i < Math.Min(one.Length, two.Length); i++)
             {
-                if(one[i] == two[i])
+                if (one[i] == two[i])
                 {
-                    count++;
-                    if (pos == 0) pos = i;
+                    countLeft++;
                 }
             }
-            for (int i = Math.Min(oneL, twoL); i >= 0; i--)
+            for (int i = one.Length - 1, j = two.Length - 1; ; i--, j--)
             {
-                if (one[i})
-            }
 
-            Console.WriteLine(count);
+                if (one[i] == two[j])
+                {
+                    countRight++;
+                }
+                if (i == 0 || j==0) break;
+            }
+            Console.WriteLine(Math.Max(countLeft, countRight));
         }
     }
 }

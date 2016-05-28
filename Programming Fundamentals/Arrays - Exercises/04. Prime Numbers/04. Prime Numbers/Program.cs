@@ -10,26 +10,22 @@ namespace _04.Prime_Numbers
     {
         static void Main(string[] args)
         {
-            decimal n = decimal.Parse(Console.ReadLine());
-
-            bool[] e = new bool[(ulong)n+1];
-            for (decimal i = 2; i < n; i++)
+            int n = int.Parse(Console.ReadLine());
+            for (long i = 0; i <= n; i++)
             {
-                e[(ulong)i] = true;
-            }
-            for (decimal j = 2; j < n; j++)
-            {
-             
-                    for (decimal p = 2; (p * j) < n; p++)
+                bool isPrime = true;
+                for (long j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
                     {
-                        e[(ulong)p * (ulong)j] = false;
+                        isPrime = false;
+                        break;
                     }
-                
-            }
-            for (decimal i = 0; i < n; i++)
-            {
-                if (e[(ulong)i])
-                    Console.Write(i + " ");
+                }
+                if (isPrime && i > 1)
+                {
+                    Console.WriteLine(i);
+                }
             }
         }
     }
