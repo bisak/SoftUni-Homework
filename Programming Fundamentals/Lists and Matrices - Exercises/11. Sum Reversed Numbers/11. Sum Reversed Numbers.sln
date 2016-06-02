@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Sum Reversed Numbers", "11. Sum Reversed Numbers\11. Sum Reversed Numbers.csproj", "{1496E678-0F0E-4CAE-9E16-2980BC454C6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1496E678-0F0E-4CAE-9E16-2980BC454C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1496E678-0F0E-4CAE-9E16-2980BC454C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1496E678-0F0E-4CAE-9E16-2980BC454C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1496E678-0F0E-4CAE-9E16-2980BC454C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
