@@ -4,6 +4,7 @@ class InstructionSet_broken
 {
     static void Main()
     {
+
         string opCode = Console.ReadLine();
 
         while (opCode != "end")
