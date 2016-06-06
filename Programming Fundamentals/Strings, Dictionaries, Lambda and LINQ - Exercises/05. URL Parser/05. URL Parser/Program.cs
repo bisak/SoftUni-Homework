@@ -12,33 +12,29 @@ namespace _04.Extract_Sentences
         {
             string url = Console.ReadLine();
             string protocol = "";
-            string server="";
-            string resource = "" ;
+            string server = "";
+            string resource = "";
             if (url.Contains("://"))
             {
-                server = url.Split(new string[] { "://" }, StringSplitOptions.None)[1];
-                server = server.Split('/')[0];
                 protocol = url.Split(new string[] { "://" }, StringSplitOptions.None)[0];
+                server = url.Split(new string[] { "://" }, StringSplitOptions.None)[1].Split('/')[0];
             }
             else
             {
-                server = url.Split('/')[0];
+                server = url.Split('/', '/')[0];
             }
-
-
             try
             {
-               resource = url.Replace(protocol +"://" + server + "/", "");
+                url = url.Replace("://", "  ");
+                resource = url.Substring(url.IndexOf("/"), url.Length - url.IndexOf('/'));
+                resource = resource.Remove(0, 1);
             }
             catch (Exception)
             {
             }
-
-
             Console.WriteLine("[protocol] = " + "\"" + protocol + "\"");
             Console.WriteLine("[server] = " + "\"" + server + "\"");
             Console.WriteLine("[resource] = " + "\"" + resource + "\"");
-
         }
     }
 }

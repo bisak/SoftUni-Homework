@@ -18,7 +18,7 @@ namespace _10.Palindrome_Index
             {
                 for (int i = 0; i < input.Length; i++)
                 {
-                    if (input.Remove(i, 1) == ReverseString(input.Remove(i, 1))) Console.WriteLine(i);
+                    if (input.Remove(i, 1) == ReverseString(input.Remove(i, 1))) { Console.WriteLine(i); break; };
                 }
             } 
         }
