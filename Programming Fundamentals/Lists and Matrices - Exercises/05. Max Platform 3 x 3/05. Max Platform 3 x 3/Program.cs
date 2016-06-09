@@ -14,12 +14,12 @@ namespace _05.Max_Platform_3_x_3
             long rows = nums[0];
             long cols = nums[1];
             long currentSum = 0;
-            long maxSum = -999999999999999999;
+            long maxSum = long.MinValue;
             long[,] matrix = new long[rows, cols];
             long[,] result = new long[3, 3];
             for (long row = 0; row < rows; row++)
             {
-                List <long> input = Console.ReadLine()
+                List<long> input = Console.ReadLine()
                     .Trim().Split(' ').Select(long.Parse).ToList();
                 for (int col = 0; col < cols; col++)
                 {
@@ -31,7 +31,7 @@ namespace _05.Max_Platform_3_x_3
                 for (long col = 0; col < cols - 2; col++)
                 {
                     currentSum = matrix[row, col] + matrix[row, col + 1] + matrix[row, col + 2] +
-                        matrix[row + 1, col] + matrix[row + 1, col + 1] + matrix[row + 1, col + 2] + 
+                        matrix[row + 1, col] + matrix[row + 1, col + 1] + matrix[row + 1, col + 2] +
                         matrix[row + 2, col] + matrix[row + 2, col + 1] + matrix[row + 2, col + 2];
                     if (currentSum > maxSum)
                     {

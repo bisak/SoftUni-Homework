@@ -18,7 +18,7 @@ namespace _02.Matrix_of_Palindromes
             {
                 for (int col = 0; col < height; col++)
                 {
-                    matrix[row, col] ="" + (char)('a' + row) + (char)('a' + col + row) + (char)('a' + row);
+                    matrix[row, col] = "" + (char)('a' + row) + (char)('a' + col + row) + (char)('a' + row);
                 }
             }
             for (int row = 0; row < width; row++)
@@ -32,3 +32,4 @@ namespace _02.Matrix_of_Palindromes
         }
     }
 }
+

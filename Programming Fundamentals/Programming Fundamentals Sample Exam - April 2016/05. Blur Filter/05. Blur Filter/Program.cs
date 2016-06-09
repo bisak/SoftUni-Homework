@@ -30,13 +30,9 @@ namespace _05.Blur_Filter
             {
                 for (long j = indc - 1; j <= indc + 1; j++)
                 {
-                    try
-                    {
-                        matrix[i, j] += ammount;
-                    }
-                    catch (Exception) //<---ГРОЗНО!
-                    {
-                    }
+                    if (i >= 0 && i < rows && j >= 0 && j < cols)
+                    matrix[i, j] += ammount;
+                    
                 }
             }
             for (long i = 0; i < rows; i++)
