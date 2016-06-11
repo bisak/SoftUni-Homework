@@ -1,33 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _03.Matrix_Operator
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            int rows = int.Parse(Console.ReadLine());
+            var rows = int.Parse(Console.ReadLine());
 
-            List<List<int>> matrix = new List<List<int>>();
+            var matrix = new List<List<int>>();
 
-            for (int row = 0; row < rows; row++)
+            for (var row = 0; row < rows; row++)
                 matrix.Add(Console.ReadLine().Split(' ').Select(int.Parse).ToList());
 
 
             while (true)
             {
-                string[] input = Console.ReadLine().Split().ToArray();
+                var input = Console.ReadLine().Split().ToArray();
                 if (input[0] == "end") break;
 
 
                 if (input[0] == "remove")
                 {
-
-                    int index = int.Parse(input[3]);
+                    var index = int.Parse(input[3]);
 
                     if (input[1] == "positive")
                     {
@@ -37,13 +34,15 @@ namespace _03.Matrix_Operator
                         }
                         if (input[2] == "col")
                         {
-                            for (int i = 0; i < rows; i++)
+                            for (var i = 0; i < rows; i++)
                             {
                                 if (index < matrix[i].Count)
                                     if (matrix[i][index] >= 0) matrix[i].RemoveAt(index);
                             }
                         }
                     }
+
+
 
                     if (input[1] == "negative")
                     {
@@ -53,7 +52,7 @@ namespace _03.Matrix_Operator
                         }
                         if (input[2] == "col")
                         {
-                            for (int i = 0; i < rows; i++)
+                            for (var i = 0; i < rows; i++)
                             {
                                 if (index < matrix[i].Count)
                                     if (matrix[i][index] < 0) matrix[i].RemoveAt(index);
@@ -65,14 +64,14 @@ namespace _03.Matrix_Operator
                     {
                         if (input[2] == "row")
                         {
-                            matrix[index].RemoveAll(x => x % 2 != 0);
+                            matrix[index].RemoveAll(x => x%2 != 0);
                         }
                         if (input[2] == "col")
                         {
-                            for (int i = 0; i < rows; i++)
+                            for (var i = 0; i < rows; i++)
                             {
                                 if (index < matrix[i].Count)
-                                    if (matrix[i][index] % 2 != 0) matrix[i].RemoveAt(index);
+                                    if (matrix[i][index]%2 != 0) matrix[i].RemoveAt(index);
                             }
                         }
                     }
@@ -81,43 +80,42 @@ namespace _03.Matrix_Operator
                     {
                         if (input[2] == "row")
                         {
-                            matrix[index].RemoveAll(x => x % 2 == 0);
+                            matrix[index].RemoveAll(x => x%2 == 0);
                         }
                         if (input[2] == "col")
                         {
-                            for (int i = 0; i < rows; i++)
+                            for (var i = 0; i < rows; i++)
                             {
                                 if (index < matrix[i].Count)
-                                    if (matrix[i][index] % 2 == 0) matrix[i].RemoveAt(index);
+                                    if (matrix[i][index]%2 == 0) matrix[i].RemoveAt(index);
                             }
                         }
                     }
-
                 }
 
 
                 if (input[0] == "swap")
                 {
-                    int firstRow = int.Parse(input[1]);
-                    int secondRow = int.Parse(input[2]);
-                    List<int> tempArr = matrix[firstRow];
+                    var firstRow = int.Parse(input[1]);
+                    var secondRow = int.Parse(input[2]);
+                    var tempArr = matrix[firstRow];
                     matrix[firstRow] = matrix[secondRow];
                     matrix[secondRow] = tempArr;
-
                 }
 
 
                 if (input[0] == "insert")
                 {
-                    int row = int.Parse(input[1]);
-                    int element = int.Parse(input[2]);
+                    var row = int.Parse(input[1]);
+                    var element = int.Parse(input[2]);
                     matrix[row].Insert(0, element);
-
                 }
             }
-            for (int row = 0; row < matrix.Count; row++)
+            for (var row = 0; row < matrix.Count; row++)
                 Console.WriteLine(string.Join(" ", matrix[row]));
+            
         }
     }
 }
+
 //ОПРАВЕНА С МЕТОДИ В СЛЕДВАЩИЯ СЪБМИТ!
