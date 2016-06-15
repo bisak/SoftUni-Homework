@@ -1,0 +1,14 @@
+.nameform{
+    background: lightblue;
+    padding: 15pt;
+}
+
+.nameform span{
+    display: inline-block;
+    width: 60pt;
+    padding-top: 10pt;
+}
+
+.nameform input{type='text'}{
+    width: 200pt;
+}
