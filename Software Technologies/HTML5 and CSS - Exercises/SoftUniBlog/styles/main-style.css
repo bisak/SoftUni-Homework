@@ -1,0 +1,55 @@
+a {
+    text-decoration: none;
+    color: #565656;
+}
+
+.articles {
+    margin-left: 5%;
+}
+
+.single-post {
+    margin-bottom: 5%;
+}
+
+.dot {
+    margin-top: 15px;
+    margin-right: 10px;
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 40px;
+    background-color: #019c8c;
+}
+
+.title {
+    font: 32px Oswald;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.title:hover {
+    transform: scale(1.01, 1.01);
+}
+
+.subtitle {
+    font: 16px Lato;
+    font-weight: 100;
+    margin-left: 3%;
+}
+
+.content {
+    padding-top: 2.5%;
+    font: 16px Lato;
+    font-weight: 500;
+    width: 80%;
+    margin-left: 3%;
+    word-break: normal;
+}
+
+footer {
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
