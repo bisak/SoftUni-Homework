@@ -7,11 +7,11 @@ function keyvalpair(input) {
         let splitted = input[i].split(' ')
         let key = splitted[0];
         let value = splitted[1];
-        obj[key]=value
+        obj[key] = value
     }
-    
-    if(obj[input[input.length-1]] == undefined) console.log("None");
-    else console.log(obj[input[input.length-1]]);
+
+    if (obj[input[input.length - 1]] == undefined) console.log("None");
+    else console.log(obj[input[input.length - 1]]);
 }
 
 keyvalpair(
