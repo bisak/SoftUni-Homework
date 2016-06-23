@@ -7,7 +7,7 @@ function cpclick() {
     }
     $.ajax({
         method: "POST",
-        url: "https://baas.kinvey.com/appdata/kid_HydvLLOr/posts", //
+        url: "https://baas.kinvey.com/appdata/kid_rJmbIItB/posts", //
         headers: {"Authorization": "Basic " + authBase64},
         data: postData,
         success: showSuccess,
@@ -19,7 +19,7 @@ function spclick() {
     let authBase64 = btoa(USERNAME + ":" + PASSWORD)
     $.ajax({
         method: "GET",
-        url: "https://baas.kinvey.com/appdata/kid_HydvLLOr/posts",
+        url: "https://baas.kinvey.com/appdata/kid_rJmbIItB/posts",
         headers: {"Authorization": "Basic " + authBase64},
         success: showPosts,
         error: showError

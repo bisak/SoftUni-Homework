@@ -1,0 +1,7 @@
+li input {
+    display: none
+}
+
+li:hover input {
+    display: inline-block
+}
