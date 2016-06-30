@@ -204,7 +204,7 @@ function run(rootUrl) {
 }
 
 function initHtmlEditor() {
-    tinymce.remove();
+    if(tinymce.editors.length > 0){tinymce.remove();}
     tinymce.init({
         selector: '.content-field',
         theme: 'modern',
