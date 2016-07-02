@@ -1,5 +1,5 @@
 # SoftUni Homeworks
 
-Homeworks, Projects, Problems.
+Homeworks, Projects.
 
-Since April 2016
+Since May 2016
