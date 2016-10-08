@@ -1,103 +1,54 @@
-monthnames = new Array(
-    "January",
-    "Februrary",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "Decemeber");
-var linkcount = 0;
-function addlink(month, day, href) {
-    var entry = new Array(3);
-    entry[0] = month;
-    entry[1] = day;
-    entry[2] = href;
-    this[linkcount++] = entry;
-}
-Array.prototype.addlink = addlink;
-linkdays = new Array();
-monthdays = new Array(12);
-monthdays[0] = 31;
-monthdays[1] = 28;
-monthdays[2] = 31;
-monthdays[3] = 30;
-monthdays[4] = 31;
-monthdays[5] = 30;
-monthdays[6] = 31;
-monthdays[7] = 31;
-monthdays[8] = 30;
-monthdays[9] = 31;
-monthdays[10] = 30;
-monthdays[11] = 31;
-todayDate = new Date();
-thisday = todayDate.getDay();
-thismonth = todayDate.getMonth();
-thisdate = todayDate.getDate();
-thisyear = todayDate.getYear();
-thisyear = thisyear % 100;
-thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
-if (((thisyear % 4 == 0)
-    && !(thisyear % 100 == 0))
-    || (thisyear % 400 == 0)) monthdays[1]++;
-startspaces = thisdate;
-while (startspaces > 7) startspaces -= 7;
-startspaces = thisday - startspaces + 1;
-if (startspaces < 0) startspaces += 7;
-document.write("<table border=2 bgcolor=white ");
-document.write("bordercolor=black><font color=black>");
-document.write("<tr><td colspan=7><center><strong>"
-    + monthnames[thismonth] + " " + thisyear
-    + "</strong></center></font></td></tr>");
-document.write("<tr>");
-document.write("<td align=center>Su</td>");
-document.write("<td align=center>M</td>");
-document.write("<td align=center>Tu</td>");
-document.write("<td align=center>W</td>");
-document.write("<td align=center>Th</td>");
-document.write("<td align=center>F</td>");
-document.write("<td align=center>Sa</td>");
-document.write("</tr>");
-document.write("<tr>");
-for (s = 0; s < startspaces; s++) {
-    document.write("<td> </td>");
-}
-count = 1;
-while (count <= monthdays[thismonth]) {
-    for (b = startspaces; b < 7; b++) {
-        linktrue = false;
-        document.write("<td>");
-        for (c = 0; c < linkdays.length; c++) {
-            if (linkdays[c] != null) {
-                if ((linkdays[c][0] == thismonth + 1) && (linkdays[c][1] == count)) {
-                    document.write("<a href=\"" + linkdays[c][2] + "\">");
-                    linktrue = true;
-                }
-            }
-        }
-        if (count == thisdate) {
-            document.write("<font color='FF0000'><strong>");
-        }
-        if (count <= monthdays[thismonth]) {
-            document.write(count);
-        }
-        else {
-            document.write(" ");
-        }
-        if (count == thisdate) {
-            document.write("</strong></font>");
-        }
-        if (linktrue)
-            document.write("</a>");
-        document.write("</td>");
-        count++;
+function calendar([day, month, year])
+{
+    // TODO: return the HTML text holding the calendar table
+
+    month--; // months in Date() are [0...11], not [1...12]
+    let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+        daysInMonth[1] = 29; // leap year
+
+    // Print the calendar table header
+    let html = '<table>\n';
+    html += '  <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>\n';
+
+    // Print the days of the previous month
+    let week = 0;
+    let date = new Date(year, month, 1);
+    let dayOfWeek = date.getDay();
+    let firstDayPrevMonth = daysInMonth[(month-1 + 12) % 12]-dayOfWeek;
+    if (dayOfWeek > 0)
+        html += '  <tr>';
+    for (let i=1; i<=dayOfWeek; i++) {
+        html += '<td class="prev-month">' + (firstDayPrevMonth + i) + '</td>';
+        week++;
     }
-    document.write("</tr>");
-    document.write("<tr>");
-    startspaces = 0;
+
+    // Print the days of the current month
+    let monthDaysCount = daysInMonth[month];
+    for (let i=1; i<=monthDaysCount; i++) {
+        if (week == 0)
+            html += '  <tr>';
+        if (day == i)
+            html += '<td class="today">' + i + '</td>';
+        else
+            html += '<td>' + i + '</td>';
+        week++;
+        if (week == 7) {
+            html += '</tr>\n';
+            week=0;
+        }
+    }
+
+    // Print the days of the next month
+    for (let i=1; week!=0; i++) {
+        html += '<td class="next-month">' + i + '</td>';
+        week++;
+        if (week == 7) {
+            html += '</tr>\n';
+            week = 0;
+        }
+    }
+
+    html += '</table>';
+    return html;
 }
-document.write("</table></p>");
