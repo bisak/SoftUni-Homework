@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<div id="time" style="border:3px solid blue; text-align:center; font-size:2em; margin-bottom:10px">00:00</div>
+<button id="startBtn">Start</button>
+<button id="stopBtn" disabled="true">Stop</button>
+<script>window.onload = function () {
+    stopwatch();
+}</script>
+
+
+<script>
+
+    function stopwatch() {
+        $("#startBtn").click(startBtnClick);
+        $('#stopBtn').click(stopBtnClick);
+        let timer;
+
+        function startBtnClick() {
+            $('#time').text("00:00");
+            $('#stopBtn').prop("disabled", false);
+            $("#startBtn").prop("disabled", true);
+            let secondsReal = 0;
+            let secondsToDisplay = 0;
+            let minutes = 0;
+            timer = setInterval(function () {
+                secondsReal++;
+                secondsToDisplay = secondsReal % 60;
+                minutes = Math.trunc(secondsReal / 60);
+                if(minutes<10){
+                    minutes = '0'+minutes;
+                }
+                if(secondsToDisplay<10){
+                    secondsToDisplay = '0'+secondsToDisplay;
+                }
+                $('#time').text(minutes + ":" + secondsToDisplay);
+
+            }, 1000)
+        }
+
+        function stopBtnClick() {
+            clearInterval(timer);
+            $('#stopBtn').prop("disabled", true);
+            $("#startBtn").prop("disabled", false);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="text" id="firstNumber" value="13.33" disabled>
+    <input type="text" id="secondNumber" value="22.18" disabled>
+
+    <div id="result"></div>
+</div>
+<script src="subtract.js"></script>
+<script>
+    window.onload = function () {
+        subtract();
+    }
+</script>
+
+<script>
+    function subtract() {
+        let first = $('#firstNumber').val();
+        let second = $('#secondNumber').val();
+        [first, second] = [first, second].map(Number);
+        let result = first - second;
+        $('#result').text(result);
+    }
+</script>
+</body>
+</html>

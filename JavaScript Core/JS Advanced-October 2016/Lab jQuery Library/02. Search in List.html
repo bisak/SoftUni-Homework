@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<ul id="towns">
+    <li>Sofia</li>
+    <li>Pleven</li>
+    <li>Varna</li>
+    <li>Plovdiv</li>
+</ul>
+<input type="text" id="searchText"/>
+<button onclick="search()">Search</button>
+<div id="result"></div>
+
+
+<script>
+    function search() {
+        let searchTerm = $('#searchText').val();
+        let matches = $(`#towns :contains(${searchTerm})`).css("font-weight", 'bold');
+        $('#result').text(matches.length + " matches found.")
+    }
+</script>
+</body>
+</html>

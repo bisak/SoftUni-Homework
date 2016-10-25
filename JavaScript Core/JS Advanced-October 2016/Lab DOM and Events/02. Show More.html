@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+Welcome to the "Show More Text Example".
+<a href="#" id="more" onclick="showText()">Read more …</a>
+<span id="text" style="display:none">Welcome to JavaScript and DOM.</span>
+<script>
+    function showText() {
+        $('#text').css('display','inline');
+        $('#more').hide();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<h1>List of Items</h1>
+<ul id="items"></ul>
+
+<input type="text" id="newText"/>
+
+<input type="button" value="Add" onclick="addItem()">
+
+<script>
+    function addItem() {
+        let newItemText = $('#newText').val();
+        console.log(newItemText)
+        $('#newText').val('');
+        let li = $('<li>');
+        li.text(newItemText);
+        let a = $('<a href="#">');
+        a.text("[Delete]");
+        li.append(a);
+        $('#items').append(li);
+        $('a').click(function () {
+            $(this).parent().remove();
+        })
+    }
+</script>
+
+</body>
+</html>
