@@ -1,7 +1,7 @@
 function exec(input) {
     let result = [];
     let currentMax = Number.MIN_SAFE_INTEGER;
-    for (let i=0; i < input.length; i++) {
+    for (let i = 0; i < input.length; i++) {
         if (Number(input[i] >= currentMax)) {
             result.push(Number(input[i]));
             currentMax = Number(input[i]);

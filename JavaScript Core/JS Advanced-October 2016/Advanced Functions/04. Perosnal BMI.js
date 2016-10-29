@@ -24,9 +24,9 @@ function runit(name, age, weight, height) {
         status: status
     };
     if (status == 'obese') {
-        objToReturn['recommendation'] = "admission required";
+        objToReturn.recommendation = "admission required";
     }
-    return objToReturn
+    return objToReturn;
 }
 
 runit("Honey Boo Boo", 9, 57, 137);

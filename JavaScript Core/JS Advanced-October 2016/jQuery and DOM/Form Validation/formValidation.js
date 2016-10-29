@@ -3,7 +3,7 @@ function solve() {
     setEventHandlers();
 
     function setEventHandlers() {
-        $('#company').on('change', function () {
+        $('#company').on('change', function() {
             let companyFieldSet = $('#companyInfo');
             if ($(this).is(':checked')) {
                 companyFieldSet.slideDown();
@@ -13,8 +13,7 @@ function solve() {
                 isCompany = false;
             }
         });
-
-        $('#submit').click(function (event) {
+        $('#submit').click(function(event) {
             event.preventDefault();
             validateForm();
         });
