@@ -143,5 +143,15 @@ describe("mathEnforcer", function () {
         it('should return 0 for (-0,-0)', function () {
             expect(mathEnforcer.sum(-0, -0)).be.equal(0);
         });
+        it('should return 3.7 on sum(2.5, 1.2)', () => {
+            expect(mathEnforcer.sum(2.5, 1.2)).to.equal(2.5 + 1.2);
+        });
+
+        it('should return -18 on sum(-2.8, -15.2)', () => {
+            expect(mathEnforcer.sum(-2.8, -15.2)).to.equal(-2.8 + -15.2);
+        });
+        it('should return 2 on sum(0, 2)', () => {
+            expect(mathEnforcer.sum(0, 2)).to.equal(2);
+        });
     });
 });
