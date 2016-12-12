@@ -1,6 +1,7 @@
 function equalNeighborsCount(matrixRows) {
     let matrix = matrixRows.map(
         row => row.split(' '));
+    console.log(matrix)
     let neighbors = 0;
     for (let row = 0; row < matrix.length-1; row++)
         for (let col = 0; col < matrix[row].length; col++)

@@ -39,7 +39,6 @@ function attachEvents() {
     function addNewPhoneNumber() {
         let person = $('#person').val().trim();
         let phone = $('#phone').val().trim();
-
         if (person != '' && phone != '') {
             $.ajax({
                 method: 'POST',

@@ -129,7 +129,10 @@ $(function () {
     function showBooksView() {
         $("section").hide();
         $("#viewBooks").show();
+
         $('#books').find("tr:first").nextAll().remove();
+
+
         loadBooks();
     }
 

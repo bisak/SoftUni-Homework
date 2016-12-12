@@ -28,7 +28,7 @@ function solution(input) {
     }
     for (let i = 0; i < resultMatrix.length; i++) {
         for (let j = 0; j < resultMatrix[i].length; j++) {
-            if (resultMatrix[i][j] != undefined)
+            if (resultMatrix[i][j])
                 resultToPrint += resultMatrix[i][j];
         }
     }
