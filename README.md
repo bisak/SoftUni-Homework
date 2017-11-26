@@ -1,4 +1,4 @@
-# SoftUni Homeworks
+# SoftUni Homework
 
 Homeworks, Projects.
 
